@@ -1,71 +1,102 @@
-# Open-Dashboard 🚀
-### Custom ESP32-S3 Smart Dashboard with LVGL
+# 🚀 Open-Dashboard: The Ultimate ESP32-S3 Smart Controller
 
-![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
-![PlatformIO](https://img.shields.io/badge/PlatformIO-Compatible-orange.svg)
-![ESP32-S3](https://img.shields.io/badge/Hardware-ESP32--S3-red.svg)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![PlatformIO](https://img.shields.io/badge/PlatformIO-Compatible-orange.svg)](https://platformio.org/)
+[![Hardware](https://img.shields.io/badge/MCU-ESP32--S3-red.svg)](https://www.espressif.com/en/products/socs/esp32-s3)
+[![Framework](https://img.shields.io/badge/Framework-Arduino-green.svg)](https://www.arduino.cc/)
 
-A high-performance, aesthetically pleasing, and open-source smart dashboard powered by the **ESP32-S3**. This project features a multi-page UI built with **LVGL 8.3**, leveraging **8MB of OPI PSRAM** for smooth animations and high-resolution assets.
-
----
-
-## ✨ Features
-
-- 🕒 **Full-Screen Pixel Clock**: Synchronized via WiFi NTP with native support for Warsaw Time (CET/CEST). Uses massive custom fonts for visibility.
-- 📖 **Horror Story Reader**: A dedicated page for atmospheric reading, currently featuring "Hanako-san" with custom blood-red styling.
-- 🍅 **Pomodoro Timer**: A productivity-focused timer with 25-minute work and 5-minute rest cycles. Horizontal progress bar and color-coded status.
-- 👻 **Ghast Animation**: A pristine Minecraft Ghast GIF rendered natively using LVGL's GIF decoder, utilizing PSRAM for hardware-accelerated playback.
-- 🌈 **Dynamic RGB Logic**: Onboard NeoPixel transitions colors based on the active page to provide ambient feedback.
+A professional-grade, high-performance smart dashboard system built on the **ESP32-S3** platform. This project showcases the power of the S3's **Octal SPI (OPI) PSRAM** coupled with a vibrant **4-inch 320x480 TFT display** to create a fluid, multi-page user interface using **LVGL 8.3**.
 
 ---
 
-## 🛠️ Hardware Connectivity
+## 📺 Project Demonstration
 
-The project is designed for the **ESP32-S3 DevKitC-1** and a **320x480 TFT LCD**.
+Check out the dashboard in action:
 
-### 📌 Pinout Map
+[Click here to watch the demo video!](YOUR_VIDEO_LINK_HERE)
 
-| Component | Pin | Notes |
+*(Note: Add your YouTube or Google Drive link here since the video file is too large for GitHub)*
+
+---
+
+## 💡 Core Features
+
+### 1. 🕒 High-Visibility Pixel Clock
+- **NTP Synchronization**: Updates over WiFi to maintain atomic-level accuracy.
+- **Timezone Awareness**: Native support for **Warsaw (Europe/Central)** time, including automatic Daylight Saving Time (DST) transitions using POSIX timezone strings.
+- **Typography**: Uses massive, custom-built fonts (up to 280px height) designed for maximum readability from across a room.
+
+### 2. 📖 Atmospheric Horror Story Reader
+- **Immersive UI**: Features a dedicated reading mode for "Hanako-san", formatted with blood-red color palettes and high-contrast typography.
+- **Auto-Wrapping**: Leverages LVGL's text engine to handle long-form storytelling on a vertical screen.
+
+### 3. ⏳ Advanced Pomodoro Timer
+- **Productivity Engine**: Optimized for the 25/5 technique (25 min work / 5 min rest).
+- **Visual Feedback**: A stacked digital layout with a high-resolution progress bar at the bottom.
+- **State Logic**: Fully controlled via external hardware touch sensors for Start/Pause/Reset functionality.
+
+### 4. 👻 Animated Ghast (Minecraft) Interface
+- **Raw Performance**: Displays an uncompressed Minecraft Ghast GIF using the LVGL native GIF decoder.
+- **Memory Optimization**: Utilizes the ESP32-S3's **8MB OPI PSRAM** to buffer and render high-quality animation frames without exhausting the internal heap.
+
+### 5. 🌈 Ambient LED Integration
+- **Contextual Lighting**: An onboard NeoPixel (WS2812B) provides peripheral feedback by changing colors based on the current page:
+  - **Clock Mode**: Deep Purple
+  - **Story Mode**: Blood Red
+  - **Work Mode**: Vivid Green
+  - **Rest Mode**: Calm Blue
+  - **Ghast Mode**: Icy White/Cyan
+
+---
+
+## 🔧 Technical Hardware Specifications
+
+### 📱 Display Module
+- **Size**: 4.0-inch TFT LCD
+- **Resolution**: 320x480 pixels
+- **Integration**: Driven by the high-speed **Lovyan03/LovyanGFX** library for near-60fps UI performance.
+- **Backlight Control**: GPIO 3 (Hard-wired for high-brightness output).
+
+### 🧠 Microcontroller & Memory
+- **SoC**: ESP32-S3 (Dual-core 240MHz)
+- **Flash**: 8MB QIO
+- **PSRAM**: **8MB Octal SPI (OPI)**. 
+  - *Crucial for GIF decoding and large LVGL frame buffers.*
+  - *Configured in `platformio.ini` via `board_build.arduino.memory_type = qio_opi`.*
+
+### 🔘 Capacitive Touch Input
+The dashboard is controlled by **TTP223** capacitive touch sensors. These are configured for **Active-HIGH** logic, providing a more robust and responsive navigation experience compared to traditional physical buttons.
+
+| Sensor | Function | Pin |
 | :--- | :--- | :--- |
-| **Backlight** | GPIO 3 | Forced HIGH at boot |
-| **Touch Button 1** | GPIO 4 | **Page Toggle** (Active-HIGH) |
-| **Touch Button 2** | GPIO 5 | **Pomo Start/Pause** (Active-HIGH) |
-| **Touch Button 3** | GPIO 6 | **Pomo Reset** (Active-HIGH) |
-| **NeoPixel LED** | GPIO 48 | WS2812 Onboard |
-| **Display** | Standard SPI | Uses LovyanGFX for high-speed ILI9488/ST7796 drivers |
+| **Touch 1** | Page Transition / Home | GPIO 4 |
+| **Touch 2** | Start / Pause Pomodoro | GPIO 5 |
+| **Touch 3** | Reset Pomodoro Timer | GPIO 6 |
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Software Architecture
 
-### 1. Prerequisites
-- [PlatformIO USB IDE](https://platformio.org/)
-- ESP32-S3 DevKit (8MB Flash / 8MB PSRAM OPI version)
+### Dependencies
+- **LVGL v8.3.11**: Industrial-grade graphics library.
+- **LovyanGFX**: Low-level display driver.
+- **Adafruit NeoPixel**: Logic-level LED control.
+- **ArduinoOTA**: Supports over-the-air firmware updates via WiFi.
 
-### 2. Configuration
-Edit `src/config.cpp` (or `src/main.cpp` if defined there) to include your credentials:
-```cpp
-const char* ssid = "YOUR_WIFI_SSID";
-const char* password = "YOUR_WIFI_PASSWORD";
-```
-
-### 3. Build & Flash
+### Build Instructions
+This project is configured for **PlatformIO**. Simply clone the repo and run:
 ```bash
+# Compile and Upload
 pio run -t upload
+
+# Open Serial Monitor
+pio device monitor -b 115200
 ```
 
 ---
 
-## 📦 Libraries
-- **LVGL 8.3.11**: Core UI framework
-- **LovyanGFX**: High-performance display driver
-- **Adafruit NeoPixel**: LED control
-- **ArduinoOTA**: Wireless firmware updates
+## 📜 License
+Available under the **MIT License**. Check the `LICENSE` file for details.
 
 ---
-
-## 📄 License
-This project is open-source under the **MIT License**. Feel free to fork and customize!
-
----
-*Developed with ❤️ for the open-source community.*
+*Created with passion for the ESP32 community. If you like this project, give it a ⭐!*

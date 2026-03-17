@@ -54,6 +54,9 @@ void update_rgb_led() {
         } else {
             rgb_led.setPixelColor(0, rgb_led.Color(0, 0, 255));
         }
+    } else if (current_page == 3) {
+        // Ghast GIF page: White/Cyan glow
+        rgb_led.setPixelColor(0, rgb_led.Color(200, 255, 255));
     }
     rgb_led.show();
 }
@@ -172,7 +175,7 @@ void logic_tick() {
 
     // Button 1: Switch Page
     if (check_button(BTN1_PIN, btn1_prev, last_btn_press_time[0], now)) {
-        current_page = (current_page + 1) % 3;
+        current_page = (current_page + 1) % 4; // Now loops through 4 pages
         lv_obj_set_tile_id(tv, current_page, 0, LV_ANIM_OFF);
     }
     

@@ -1,6 +1,6 @@
 .pio/build/esp32-s3-devkitc-1/lib533/LovyanGFX/lgfx/v1/platforms/esp32/Bus_SPI.cpp.o: \
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/platforms/esp32/Bus_SPI.cpp \
- /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h \
+ /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/platforms/esp32/Bus_SPI.hpp \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_rom/include/esp32s3/rom/lldesc.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/driver/include/driver/spi_common_internal.h \

@@ -1,8 +1,11 @@
 #include <Arduino.h>
+#include "my_photo.h"
+#include "my_ghast_gif.h"
 #include "ui.h"
 
+// Globals
 lv_obj_t *tv;
-lv_obj_t *page1, *page2, *page3;
+lv_obj_t *page1, *page2, *page3, *page4;
 lv_obj_t *lbl_hour;
 lv_obj_t *lbl_min;
 lv_obj_t *lbl_pomo_hour;
@@ -21,7 +24,9 @@ void build_ui() {
     page1 = lv_tileview_add_tile(tv, 0, 0, LV_DIR_NONE);
     page2 = lv_tileview_add_tile(tv, 1, 0, LV_DIR_NONE);
     page3 = lv_tileview_add_tile(tv, 2, 0, LV_DIR_NONE);
+    page4 = lv_tileview_add_tile(tv, 3, 0, LV_DIR_NONE);
 
+    // Page 1: Clock (Cyberpunk)
     lv_obj_set_style_bg_color(lv_scr_act(), lv_color_hex(CP_BG), 0);
     lv_obj_set_style_bg_color(tv, lv_color_hex(CP_BG), 0);
     lv_obj_set_style_bg_color(page1, lv_color_hex(CP_BG), 0);
@@ -106,4 +111,25 @@ void build_ui() {
     lv_bar_set_value(bar_pomo_progress, 25 * 60, LV_ANIM_OFF);
     lv_obj_set_style_bg_color(bar_pomo_progress, lv_color_hex(0x333333), LV_PART_MAIN);
     lv_obj_set_style_bg_color(bar_pomo_progress, lv_color_hex(0x00FF00), LV_PART_INDICATOR); // Green indicator
+
+    // Page 4: Ghast GIF
+    lv_obj_set_style_bg_color(page4, lv_color_hex(CP_BG), 0);
+    
+    // Wrap the raw GIF data in an LVGL image descriptor so the decoder doesn't crash
+    static lv_img_dsc_t ghast_gif_dsc = {
+        .header = {
+            .cf = LV_IMG_CF_RAW,
+            .always_zero = 0,
+            .reserved = 0,
+            .w = 0,
+            .h = 0,
+        },
+        .data_size = raw_gif_data_len,
+        .data = raw_gif_data,
+    };
+
+    // Create the GIF
+    lv_obj_t *ghast_gif = lv_gif_create(page4);
+    lv_gif_set_src(ghast_gif, &ghast_gif_dsc);
+    lv_obj_align(ghast_gif, LV_ALIGN_CENTER, 0, 0);
 }

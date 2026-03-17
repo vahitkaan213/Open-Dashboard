@@ -7,7 +7,7 @@ LV_FONT_DECLARE(my_font_280);
 LV_FONT_DECLARE(my_font_260);
 
 extern lv_obj_t *tv;
-extern lv_obj_t *page1, *page2, *page3;
+extern lv_obj_t *page1, *page2, *page3, *page4;
 
 extern lv_obj_t *lbl_hour;
 extern lv_obj_t *lbl_min;

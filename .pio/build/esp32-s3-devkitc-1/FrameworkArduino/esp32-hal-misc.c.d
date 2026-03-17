@@ -1,6 +1,6 @@
 .pio/build/esp32-s3-devkitc-1/FrameworkArduino/esp32-hal-misc.c.o: \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-misc.c \
- /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h \
+ /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/freertos/include/freertos/FreeRTOS.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/freertos/include/esp_additions/freertos/FreeRTOSConfig.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_common/include/esp_compiler.h \

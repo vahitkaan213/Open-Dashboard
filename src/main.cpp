@@ -30,6 +30,7 @@ void setup() {
   Serial.printf("PSRAM Size: %d bytes\n", ESP.getPsramSize());
   Serial.printf("Free PSRAM: %d bytes\n", ESP.getFreePsram());
   Serial.printf("Free Internal Heap: %d bytes\n", ESP.getFreeHeap());
+  Serial.printf("Setup Complete! Free Heap: %d, Free PSRAM: %d\n", ESP.getFreeHeap(), ESP.getFreePsram());
   Serial.println("Setup Finished.");
   
   Serial.println("System Ready.");

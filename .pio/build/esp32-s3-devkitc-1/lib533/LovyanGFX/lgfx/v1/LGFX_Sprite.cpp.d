@@ -2,7 +2,7 @@
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/LGFX_Sprite.cpp \
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/LGFX_Sprite.hpp \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/newlib/platform_include/assert.h \
- /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h \
+ /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/LGFXBase.hpp \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \

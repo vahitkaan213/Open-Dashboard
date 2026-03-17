@@ -179,7 +179,8 @@
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_hw_support/include/soc/esp32/spiram.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/io_pin_remap.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
- src/ui.h .pio/libdeps/esp32-s3-devkitc-1/lvgl/lvgl.h \
+ src/my_photo.h src/my_ghast_gif.h src/ui.h \
+ .pio/libdeps/esp32-s3-devkitc-1/lvgl/lvgl.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/lv_log.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/../lv_conf_internal.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/../lv_conf_kconfig.h \

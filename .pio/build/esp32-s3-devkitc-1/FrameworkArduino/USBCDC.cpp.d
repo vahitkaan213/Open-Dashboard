@@ -1,7 +1,7 @@
 .pio/build/esp32-s3-devkitc-1/FrameworkArduino/USBCDC.cpp.o: \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/USBCDC.cpp \
  /home/kan/.platformio/packages/framework-arduinoespressif32/cores/esp32/USB.h \
- /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h \
+ /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_event/include/esp_event.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_common/include/esp_err.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_common/include/esp_compiler.h \

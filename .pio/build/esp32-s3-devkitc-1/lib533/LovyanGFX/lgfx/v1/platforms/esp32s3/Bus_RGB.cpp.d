@@ -1,6 +1,6 @@
 .pio/build/esp32-s3-devkitc-1/lib533/LovyanGFX/lgfx/v1/platforms/esp32s3/Bus_RGB.cpp.o: \
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/platforms/esp32s3/Bus_RGB.cpp \
- /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_qspi/include/sdkconfig.h \
+ /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/qio_opi/include/sdkconfig.h \
  .pio/libdeps/esp32-s3-devkitc-1/LovyanGFX/src/lgfx/v1/platforms/esp32s3/Bus_RGB.hpp \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_lcd/include/esp_lcd_panel_io.h \
  /home/kan/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32s3/include/esp_common/include/esp_err.h \

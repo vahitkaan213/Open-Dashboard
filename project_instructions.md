@@ -4,10 +4,11 @@
 An open-source, ultra-cheap custom smart dashboard powered by ESP32. Features a massive NTP pixel clock, a unique reading display, and a sleek Pomodoro timer with progress tracking. Built with LVGL for stunning visuals on budget TFT screens.
 
 ## 1. Project Overview
-This project is an ESP32-S3 driven smart display using LVGL and a custom 320x480 TFT screen. The system has three main pages:
+This project is an ESP32-S3 driven smart display using LVGL and a custom 320x480 TFT screen. The system has four main pages:
 1. **Full-Screen Pixel Clock**: A dynamically updated WiFi NTP clock that fills the screen with massive 280-pixel tall characters.
 2. **Japanese Horror Story**: A screen dedicated to a wrapped horror story ("Hanako-san") featuring blood-red text formatting.
 3. **Pomodoro Timer**: A minimalist study timer (Page 3) incorporating a large 260-pixel stacked countdown indicator and a bottom progress bar to monitor work (25m) and rest (5m) cycles.
+4. **Ghast Animation**: A final page displaying a Minecraft Ghast GIF (`my_ghast_gif.h`) utilizing LVGL's native GIF decoder widget.
 
 ## 2. Hardware Setup
 ### Components

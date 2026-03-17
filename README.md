@@ -13,7 +13,7 @@ A professional-grade, high-performance smart dashboard system built on the **ESP
 
 Check out the dashboard in action:
 
-[Click here to watch the demo video!](https://www.youtube.com/shorts/q00bwqRD0so)
+[Click here to watch the demo video!](https://www.youtube.com/shorts/Ixy7KJ9wH0Q)
 
 *(Note: Add your YouTube or Google Drive link here since the video file is too large for GitHub)*
 

@@ -1,76 +1,71 @@
-# Open Dashboard 🕒👻🍅
+# Open-Dashboard 🚀
+### Custom ESP32-S3 Smart Dashboard with LVGL
 
-An open-source, ultra-cheap custom smart dashboard powered by the ESP32-S3 microcontroller. This project leverages the powerful LVGL graphics library to deliver a stunning and smooth user interface on budget TFT LCD screens.
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+![PlatformIO](https://img.shields.io/badge/PlatformIO-Compatible-orange.svg)
+![ESP32-S3](https://img.shields.io/badge/Hardware-ESP32--S3-red.svg)
 
-## 🌟 Features & Pages
-The dashboard interface is built using an `lv_tileview` that cycles smoothly through 4 dedicated pages, operated by a physical capacitive touch button. The rear NeoPixel LED dynamically changes colors to match the mood of the active page!
-
-1. **Full-Screen Pixel Clock (Page 1)**
-   * **Visuals**: A massive, screen-filling retro pixel clock (280-pixel tall characters).
-   * **Logic**: Synchronizes perfectly with global timeservers via WiFi Network Time Protocol (NTP). Features active European/Warsaw timezone support (DST compliant).
-   * **LED**: Glows soft Cyberpunk Purple.
-
-2. **Japanese Horror Story (Page 2)**
-   * **Visuals**: An atmospheric reading display dedicated to the creepy legend of "Hanako-san".
-   * **Logic**: Employs deep red, blood-like formatting on a pitch-black background.
-   * **LED**: Glows blood Red.
-
-3. **Pomodoro Study Timer (Page 3)**
-   * **Visuals**: A sleek, minimalist study timer utilizing a massive 260px stacked font layout for remaining minutes and seconds.
-   * **Logic**: Features a dynamic bottom progress bar mapping your 25-minute WORK and 5-minute REST intervals. Controlled by dedicated physical touch buttons to play, pause, or reset.
-   * **LED**: Glows vibrant Green during work sessions, and cool Blue during rest periods.
-
-4. **Ghast Animation (Page 4)**
-   * **Visuals**: A full-screen animation of the Minecraft Ghast.
-   * **Logic**: Powered by LVGL's native GIF decoder utilizing directly mapped uncompressed byte arrays in the ESP32-S3's 8MB PSRAM to ensure flawless framerates without CPU bottlenecks.
-   * **LED**: Glows an icy White/Cyan.
+A high-performance, aesthetically pleasing, and open-source smart dashboard powered by the **ESP32-S3**. This project features a multi-page UI built with **LVGL 8.3**, leveraging **8MB of OPI PSRAM** for smooth animations and high-resolution assets.
 
 ---
 
-## 🛠️ Hardware & Components
+## ✨ Features
 
-To build this project, you will need the following budget-friendly components:
-
-| Component | Description |
-| :--- | :--- |
-| **Microcontroller** | ESP32-S3 DevKitC-1 (Ensure model has 8MB PSRAM for the GIF decoder) |
-| **Display Panel** | 3.5" or 4.0" TFT LCD screen (320x480 resolution) typically utilizing the ILI9488 or ST7796S driver. |
-| **Inputs** | 3x TTP223 Capacitive Touch Sensor Modules (Active-HIGH configuration). |
-| **Feedback LED** | 1x WS2812B NeoPixel RGB LED. |
-
-### Wiring & Pinout
-The components should be wired to the ESP32-S3 as follows:
-
-*   **Display Backlight (`TFT_BL`)**: Pin `3` (Hardcoded HIGH during boot).
-*   **Touch Button 1 (Page Cycle)**: Pin `4`
-*   **Touch Button 2 (Pomodoro Play/Pause)**: Pin `5`
-*   **Touch Button 3 (Pomodoro Reset)**: Pin `6`
-*   **NeoPixel LED Data Pin**: Pin `48`
+- 🕒 **Full-Screen Pixel Clock**: Synchronized via WiFi NTP with native support for Warsaw Time (CET/CEST). Uses massive custom fonts for visibility.
+- 📖 **Horror Story Reader**: A dedicated page for atmospheric reading, currently featuring "Hanako-san" with custom blood-red styling.
+- 🍅 **Pomodoro Timer**: A productivity-focused timer with 25-minute work and 5-minute rest cycles. Horizontal progress bar and color-coded status.
+- 👻 **Ghast Animation**: A pristine Minecraft Ghast GIF rendered natively using LVGL's GIF decoder, utilizing PSRAM for hardware-accelerated playback.
+- 🌈 **Dynamic RGB Logic**: Onboard NeoPixel transitions colors based on the active page to provide ambient feedback.
 
 ---
 
-## 🚀 Installation & Setup
+## 🛠️ Hardware Connectivity
 
-This project uses **PlatformIO** for package management and compilation.
+The project is designed for the **ESP32-S3 DevKitC-1** and a **320x480 TFT LCD**.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/vahitkaan213/Open-Dashboard.git
-   ```
-2. **Configure your WiFi:**
-   Open `src/config.h` and enter your local WiFi credentials:
-   ```cpp
-   extern const char* ssid = "YOUR_WIFI_SSID";
-   extern const char* password = "YOUR_WIFI_PASSWORD";
-   ```
-3. **Build and Upload:**
-   Ensure your ESP32-S3 is plugged in and recognized, then compile and upload the filesystem using PlatformIO:
-   ```bash
-   pio run -t upload
-   ```
+### 📌 Pinout Map
 
-## 📚 Libraries Used
-The internal `platformio.ini` environment will automatically fetch these required dependencies:
-*   [LovyanGFX](https://github.com/lovyan03/LovyanGFX) - Display Driver
-*   [LVGL](https://github.com/lvgl/lvgl) - GUI Framework
-*   [Adafruit NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel) - LED Control
+| Component | Pin | Notes |
+| :--- | :--- | :--- |
+| **Backlight** | GPIO 3 | Forced HIGH at boot |
+| **Touch Button 1** | GPIO 4 | **Page Toggle** (Active-HIGH) |
+| **Touch Button 2** | GPIO 5 | **Pomo Start/Pause** (Active-HIGH) |
+| **Touch Button 3** | GPIO 6 | **Pomo Reset** (Active-HIGH) |
+| **NeoPixel LED** | GPIO 48 | WS2812 Onboard |
+| **Display** | Standard SPI | Uses LovyanGFX for high-speed ILI9488/ST7796 drivers |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+- [PlatformIO USB IDE](https://platformio.org/)
+- ESP32-S3 DevKit (8MB Flash / 8MB PSRAM OPI version)
+
+### 2. Configuration
+Edit `src/config.cpp` (or `src/main.cpp` if defined there) to include your credentials:
+```cpp
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+```
+
+### 3. Build & Flash
+```bash
+pio run -t upload
+```
+
+---
+
+## 📦 Libraries
+- **LVGL 8.3.11**: Core UI framework
+- **LovyanGFX**: High-performance display driver
+- **Adafruit NeoPixel**: LED control
+- **ArduinoOTA**: Wireless firmware updates
+
+---
+
+## 📄 License
+This project is open-source under the **MIT License**. Feel free to fork and customize!
+
+---
+*Developed with ❤️ for the open-source community.*
